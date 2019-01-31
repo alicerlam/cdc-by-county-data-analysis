@@ -26,12 +26,7 @@ head(states)
 tail(states)
 
 ggplot(data = states) +
-  geom_polygon(aes(
-    x = long,
-    y = lat,
-    fill = region,
-    group = group
-  ), color = "white") +
+  geom_polygon(aes(x = long, y = lat, fill = region, group = group), color = "white") +
   coord_fixed(1.3) +
   guides(fill = FALSE)
 
@@ -48,8 +43,7 @@ ca_data <-
   inner_join(ca_county, CDC.by.County, by = "subregion", copy = FALSE)
 
 ca_base <-
-  ggplot(data = ca_df,
-         mapping = aes(x = long, y = lat, group = group)) +
+  ggplot(data = ca_df, mapping = aes(x = long, y = lat, group = group)) +
   coord_fixed(1.3) +
   geom_polygon(color = "black", fill = "gray")
 ca_base + theme_bw() +
